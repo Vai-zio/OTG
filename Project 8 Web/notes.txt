@@ -1,0 +1,14 @@
+Web browser (chrome, edge, firefox)
+Man bruger en webbrowser til at kommunnikere med webservicen
+
+Web service (eksempler)
+    Discord.com (Dynamisk webservice)
+    MitId.dk
+    dmi.dk
+    Spotify.com (Dynamisk )
+    Chatgpt.com
+    Youtube.com
+    wikipedia.org (Statisk webservice)
+
+Domain name system (DNS)
+

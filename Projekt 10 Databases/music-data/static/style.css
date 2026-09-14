@@ -1,0 +1,83 @@
+/* General reset */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    color: #e100ff;
+
+    --angle: 0deg;
+    background: linear-gradient(var(--angle), #222, #444);
+
+    /* smooth padding both ways + gradient rotation */
+    transition: padding 0.5s ease;
+    animation: rotateGradient 8s linear infinite;
+}
+
+@keyframes rotateGradient {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+.hero:hover {
+    padding: 100px 40px;
+}
+
+
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.4s ease, transform 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #e100ff;
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px);
+    color: #e100ff
+}
+
+.btn-secondary {
+    background-color: #555;
+    color: #fff;
+}
+.btn-secondary:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px);
+    color: #e100ff
+}

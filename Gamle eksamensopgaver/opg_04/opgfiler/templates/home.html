@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+    {% if session.logged_in %}
+    <h2>New post</h2>
+    <form method="post">
+
+        <label for="body">Post:</label>
+        <textarea name="body" id="body" rows="3" cols="50"></textarea>
+        
+        <input type="submit" value="Post">
+    </form>
+    {% endif %}
+
+    <h2>Posts</h2>
+    {% for post in posts %}
+    <div class="post">
+        <a href="/post/{{post.id}}">
+            <p class="author">{{ post.name }} ({{ post.date }})</p>
+        </a>
+        <p>{{ post.text }}</p>
+    </div>
+    {% else %}
+    <em>Unbelievable, no posts yet!</em>
+    {% endfor %}
+
+{% endblock %}

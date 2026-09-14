@@ -1,0 +1,124 @@
+<!-- templates/navigatebar.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ripoff music database</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+        }
+
+        /* Left, center, right sections */
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left ul,
+        .nav-right ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-left li,
+        .nav-right li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav a {
+            color: #e100ff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff00b3;
+        }
+
+        /* Center logo */
+        .nav-center {
+            flex: 0 0 auto;
+        }
+        .nav-center a {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e100ff;
+            text-decoration: none;
+        }
+
+        /* Dropdown styles */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            top: 100%;
+            left: 0;
+            min-width: 160px;
+            z-index: 1000;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: #e100ff;
+        }
+        .dropdown-menu a:hover {
+            background-color: #e100ff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <!-- Left side (Home + Music + Donate) -->
+        <div class="nav-left">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li class="dropdown">
+                    <a href="/music">Music ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="/music/search">Search</a>
+                        <a href="/music/favorites">Favorites</a>
+                        <a href="/createpost">Create post</a>
+                    </div>
+                </li>
+                <li><a href="/donate">Donate</a></li>
+            </ul>
+        </div>
+
+        <!-- Center (logo) -->
+        <div class="nav-center">
+            <a href="/">LOGO</a>
+        </div>
+
+        <!-- Right side (Sign Up, Sign In, Settings) -->
+        <div class="nav-right">
+            <ul>
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/signin">Sign In</a></li>
+                <li><a href="/settings">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

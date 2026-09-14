@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "navbar.html" %}
+    {% block content %}
+    <div class="hero">
+        <h1>Welcome to My Music Database</h1>
+        <p>
+            Discover, create, and manage your music posts with ease.<br>
+            Listen to your favorite tracks and build your collection in the Music section.<br>
+            Log in to unlock full features and start sharing your music journey.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="/signup" class="btn btn-primary">Get Started</a>
+            <a href="/signin" class="btn btn-secondary">Sign In</a>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

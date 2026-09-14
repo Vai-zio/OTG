@@ -1,0 +1,84 @@
+import pygame as pg
+import time
+
+x=500
+y=500
+
+screen = pg.display.set_mode((1440,960))
+pg.display.set_caption("Spaceship miner")
+
+br1 = pg.image.load("blackrock.png")
+br2 = pg.image.load("blackrock2.png")
+gr2 = pg.image.load("greenrock2.png")
+pr2 = pg.image.load("purplerock2.png")
+r1 = pg.image.load("rock.png")
+ss1 = pg.image.load("spaceship1.png")
+ss3 = pg.image.load("spaceship3.png")
+ss3a2 = pg.image.load("spaceship3a1.png")
+ss3a3 = pg.image.load("spaceship3a2.png")
+wr2 = pg.image.load("whiterock2.png")
+yr2 = pg.image.load("yellowrock2.png")
+
+
+
+running = True
+move_left = False
+move_right = False
+move_up = False
+move_down = False
+while running:
+
+    events = pg.event.get()
+    for event in events:
+        print("event:",event)
+        if event.type == pg.QUIT:
+            running = False
+            print("go kill yourself")
+
+        elif event.type == pg.KEYDOWN:
+            if event.key == pg.K_BACKSPACE:
+                running = False
+            if event.key == pg.K_LEFT:
+                move_left = True
+            if event.key == pg.K_RIGHT:
+                move_right = True
+            if event.key == pg.K_UP:
+                move_up = True
+            if event.key == pg.K_DOWN:
+                move_down = True
+            if event.key == pg.K_SPACE:
+                 y=y-100
+
+        elif event.type == pg.KEYUP:
+            if event.key == pg.K_LEFT:
+                move_left = False
+            if event.key == pg.K_RIGHT:
+                move_right = False
+            if event.key == pg.K_UP:
+                move_up = False
+            if event.key == pg.K_DOWN:
+                move_down = False
+            
+        
+    if move_left:
+        x=x-5
+    if move_right:
+        x=x+5
+    if move_up:
+        y=y-5
+    if move_down:
+        y=y+5
+
+    if screen.fill((0,0,0)):
+        time.sleep(1/60)
+    screen.fill((0,0,0))
+    screen.blit(ss3,(x,y))
+    screen.fill((0,0,0))
+    screen.blit(ss3a2,(x,y))
+    screen.fill((0,0,0))
+    screen.blit(ss3a3,(x,y))
+    pg.display.update()
+    time.sleep(1/30)
+    
+
+pg.quit()

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Calculator 2000!</title></head>
+    <body>
+        <h1>Calculator 2000!</h1>
+        {% if error %}
+        <p><b>Error</b>:{{error}}</p>
+        {% endif %}
+        <form method="post">
+            Length: <input type="text" name="a" value="{{a}}"><br>
+            Width : <input type="text" name="b" value="{{b}}"><br>
+            Height: <input type="text" name="c" value="{{c}}"><br>
+            <h4>Leave 1 in the third box for only 2 multiplications</h4>
+            <input type="submit" value="Calculate result">
+        </form>
+        {% block adnr1 %}
+        <p>To show ads</p>
+        {% endblock %}
+
+        {% if result is not none %}
+        <h2>Result:</h2>
+        <h3>You're such a good boy :3</h3>
+        <p>{{a}} x {{b}} x {{c}} = {{result}}</p>
+        <h3>In case it doesn't work</h3>
+        <form action="/open_calculator" method="post">
+            <button type="submit">Click ME!</button>
+        </form>
+        {% endif %}
+        {%- for line in errors %}
+        <h3>{{ line -}}</h3>
+        {% endfor %}
+        
+    </body>
+</html>

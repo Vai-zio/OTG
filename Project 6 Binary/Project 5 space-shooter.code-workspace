@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../Project 5 space-shooter"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"hoovercj.vscode-power-mode"
+		]
+	}
+}

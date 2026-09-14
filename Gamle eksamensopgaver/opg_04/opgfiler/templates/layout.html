@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title>Micro Blog</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<a href="{{ url_for('home') }}"><h1>Micro Blog</h1></a>
+{% if not session.logged_in %}
+<a class="metanav" href="{{ url_for('register') }}">Register</a>
+<a class="metanav" href="{{ url_for('login') }}">Log in</a>
+{% else %}
+<a class="metanav" href="{{ url_for('logout') }}">Log out ({{ session.email }})</a>
+{% endif %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+ 
+{% block body %}{% endblock %}
+
+</body>
+
+</html>

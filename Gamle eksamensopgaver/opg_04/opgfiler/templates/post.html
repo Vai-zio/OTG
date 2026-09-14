@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+    {% if session.logged_in %}
+    <div class="post">
+        <h2 class="author">{{ post.name }} ({{ post.date }})</h2> 
+        <p>{{ post.text }}</p>
+    </div>
+
+    <h3>Comments</h3>
+    <form method="post">
+        <label for="body">Post:</label>
+        <textarea name="body" id="body" rows="3" cols="50"></textarea>
+        <input type="submit" value="Comment">
+    </form>
+    {% endif %}
+
+    {% for comment in comments %}
+        <div class="comment">
+        <p>{{comment.text}}</p>
+        <p class="comment-author">{{ comment.name }} ({{comment.date}})</p>
+        </div>
+    {% else %}
+    <em>Unbelievable, no comments yet!</em>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+import random
+
+print("Welcome to hangman the game that determines your life! <3") 
+
+# Open the text file and read the words into a list
+with open("five-letter-words.txt", "r") as file:
+    word_list = file.read().splitlines()  # Reads each line and removes the newline character
+
+# Randomly select a word from the list
+word = random.choice(word_list) #Random word from list of words
+
+# List to keep track of correctly guessed letters
+guessed_word = ["_"] * len(word)
+
+# Keep track of guessed letters
+guessed_letters = []
+
+attempts = 6
+
+while attempts > 1 and "_" in guessed_word:
+    #for-loop
+    user_input = input("What is your guess?" "").lower()
+
+    for letter in word:
+        if user_input == letter:
+            print(letter,end=" ")
+            guessed_letters.append(user_input)
+       
+        elif letter in guessed_letters:
+            print(letter,end=" ")
+            
+        else:
+            print("_",end=" ") #help(print) / python dokumentation på python.org
+        
+    print("\n")
